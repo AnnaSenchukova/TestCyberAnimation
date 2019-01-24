@@ -51,13 +51,11 @@ body {
     color: #4b6ecd;
     text-transform: uppercase;
 
-    padding-left: 3px;
-
 
 }
 
 .promo__title--decoration {
-
+visibility: hidden;
     min-height: 40px;
 letter-spacing: 5px;
 
@@ -71,22 +69,25 @@ letter-spacing: 5px;
 
     border-right: 55px solid transparent;
 
-    animation: blinking-cursor 0.75s step-end infinite 1s,
-    print-letter 15s steps(12, end);
+    animation: blinking-cursor 1s step-end infinite 8s,
+    print-letter 3s steps(12, end) 8s forwards;
 }
 
 .promo__title--cyber {
     min-height: 136px;
 
-    letter-spacing: 15px;
-  /*  white-space: nowrap;
+
+    white-space: nowrap;
     overflow: hidden;
 
-    border-right: 40px solid #4b6ecd;
+    text-align: left;
 
-    animation: blinking-cursor 1s step-end infinite;
-    */
+    border-right: 57px solid transparent;
+    animation: blinking-cursor 1s step-end 7 0.5s,
+    print-letter 5s steps(6, end);
 }
+
+
 
 @keyframes blinking-cursor {
     0% {
@@ -104,24 +105,43 @@ letter-spacing: 5px;
 
 @keyframes print-letter {
     0% {
+
+        visibility: visible;
         width: 0;
     }
     100% {
         width: 100%;
+        visibility: visible;
     }
 }
+
+
+
 
 
 .promo__note {
     order: 2;
     width: 100%;
+    visibility: hidden;
 
     font-size: 26px;
     line-height: calc(26px * 1.2);
     color: #5d84d7;
     text-align: center;
+
+    animation: show-hidden 2s ease 18s forwards;
 }
 
+@keyframes show-hidden {
+    0% {
+        opacity: 0.4;
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+       visibility: visible;
+    }
+}
 
 .preload {
     width: 100%;
@@ -175,6 +195,18 @@ letter-spacing: 5px;
     height: 48px;
 
     background-color: #4b6ecd;
+    animation: progress-line 5s linear 13s forwards;
+}
+
+@keyframes progress-line {
+    0% {
+      width: 0;
+      background-color: #4b6ecd;
+    }
+
+    100% {
+        width: 80%;
+    }
 }
 
 
