@@ -43,21 +43,61 @@ body {
 }
 
 .promo__title {
+    display: block;
+
     font-weight: 500;
     font-size: 69px;
     line-height: 63px;
     color: #4b6ecd;
     text-transform: uppercase;
     text-align: center;
+
+    overflow: hidden;
+
 }
 
 .promo__title--decoration {
+    min-height: 40px;
+
     font-weight: 500;
     font-size: 39px;
     line-height: 47px;
     color: #ffffff;
     text-transform: lowercase;
+    white-space: nowrap;
+    overflow: hidden;
+
+    border-right: 40px solid #4b6ecd;
+
+    animation: blinking-cursor 1s step-end infinite;
 }
+
+.promo__title--cyber {
+    min-height: 136px;
+
+  /*  white-space: nowrap;
+    overflow: hidden;
+
+    border-right: 40px solid #4b6ecd;
+
+    animation: blinking-cursor 1s step-end infinite;
+    */
+}
+
+@keyframes blinking-cursor {
+    0% {
+        border-color: #4b6ecd;
+    }
+
+    50% {
+        border-color: transparent;
+    }
+
+    100% {
+        border-color: #4b6ecd;
+    }
+}
+
 
 .promo__note {
     order: 2;
@@ -86,15 +126,6 @@ body {
 
 
 }
-
-.preload__progress {
-    width: 80%;
-    height: 48px;
-
-    background-color: #4b6ecd;
-}
-
-
 
 .preload__wrapper::before,
 .preload__wrapper::after {
@@ -126,6 +157,17 @@ body {
     border-radius: 1px 0 0 1px;
 }
 
+.preload__progress {
+    width: 80%;
+    height: 48px;
+
+    background-color: #4b6ecd;
+}
+
+
+
+
+
 .preload__value {
     position: absolute;
     top: 50%;
@@ -141,6 +183,13 @@ body {
 
 
 @media screen and (min-width: 768px) {
+    .promo__title--decoration {
+        height: 67px;
+    }
+
+    .promo__title--cyber {
+        min-height: 136px;
+    }
     .promo__wrapper {
         width: 100%;
         max-width: 960px;
