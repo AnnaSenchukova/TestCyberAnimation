@@ -44,20 +44,22 @@ body {
 
 .promo__title {
     display: block;
-
+    max-width: 775px;
     font-weight: 500;
     font-size: 69px;
     line-height: 63px;
     color: #4b6ecd;
     text-transform: uppercase;
-    text-align: center;
 
-    overflow: hidden;
+    padding-left: 3px;
+
 
 }
 
 .promo__title--decoration {
+
     min-height: 40px;
+letter-spacing: 5px;
 
     font-weight: 500;
     font-size: 39px;
@@ -67,14 +69,16 @@ body {
     white-space: nowrap;
     overflow: hidden;
 
-    border-right: 40px solid #4b6ecd;
+    border-right: 55px solid transparent;
 
-    animation: blinking-cursor 1s step-end infinite;
+    animation: blinking-cursor 0.75s step-end infinite 1s,
+    print-letter 15s steps(12, end);
 }
 
 .promo__title--cyber {
     min-height: 136px;
 
+    letter-spacing: 15px;
   /*  white-space: nowrap;
     overflow: hidden;
 
@@ -95,6 +99,15 @@ body {
 
     100% {
         border-color: #4b6ecd;
+    }
+}
+
+@keyframes print-letter {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
     }
 }
 
