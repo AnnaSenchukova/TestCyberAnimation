@@ -84,7 +84,7 @@ letter-spacing: 5px;
 
     border-right: 57px solid transparent;
     animation: blinking-cursor 1s step-end 7 0.5s,
-    print-letter 5s steps(6, end);
+    print-letter 3s steps(6, end);
 }
 
 
@@ -198,7 +198,7 @@ letter-spacing: 5px;
     visibility: hidden;
 
     background-color: #4b6ecd;
-    animation: progress-line 5s linear 13s forwards;
+    animation: progress-line 8s linear 10s forwards;
 }
 
 @keyframes progress-line {
@@ -218,56 +218,55 @@ letter-spacing: 5px;
 
 
 
-.preload__value {
+.preload__value,
+.preload__prosent {
     position: absolute;
     top: 50%;
     left: 50%;
 
-    width: 1em;
-    height: 1em;
-    overflow: hidden;
-    line-height: 1em;
     font-size: 22px;
     text-transform: uppercase;
 
     transform: translate(-50%, -50%);
 }
 
-
+.preload__value {
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    line-height: 1em;
+}
 
 .preload__value--decades {
     left: 47%;
 }
 
 
-
-
-.preload__value--decades .preload__value-components {
+.preload__value-components {
     position: relative;
-    visibility: hidden;
-    animation: spinit 50s 1 15s forwards;
 }
 
 .preload__value--units .preload__value-components {
-    position: relative;
-    animation: units 5s 8 10s;
+    animation: change-units 1s 8 10s;
 }
+
+.preload__value--decades .preload__value-components {
+    visibility: hidden;
+    animation: change-decades 10s 1 11s forwards;
+}
+
+
 
 .preload__prosent {
-    position: absolute;
-    top: 50%;
     left: 53.5%;
-
-    font-size: 22px;
-    transform: translate(-50%, -50%);
 }
 
-@keyframes spinit {
+@keyframes change-decades {
     0% { top: 0em; visibility: visible}
     9.9% { top: 0em; visibility: visible}
     10%{ top: -1em; visibility: visible}
     19.9%{ top: -1em; visibility: visible}
-    20%{ top: -2em; visibility: visible}
+    20%{ top: -2em; visibility: visible }
     29.9%{ top: -2em; visibility: visible}
     30%{ top: -3em; visibility: visible}
     39.9%{ top: -3em; visibility: visible}
@@ -281,7 +280,7 @@ letter-spacing: 5px;
     100%{ top: -7em; visibility: visible }
 }
 
-@keyframes units {
+@keyframes change-units {
     0% { top: 0; }
     9.9% { top: 0; }
     10%{ top: -1em; }
