@@ -1,11 +1,13 @@
 /*Базовые стили*/
 html {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
+    -webkit-box-sizing: inherit;
     box-sizing: inherit;
 }
 
@@ -27,6 +29,19 @@ body {
 /*Покадровые анимации*/
 
 /*Анимация мерцающего курсора*/
+@-webkit-keyframes blinking-cursor {
+    0% {
+        border-color: #4b6ecd;
+    }
+
+    50% {
+        border-color: transparent;
+    }
+
+    100% {
+        border-color: #4b6ecd;
+    }
+}
 @keyframes blinking-cursor {
     0% {
         border-color: #4b6ecd;
@@ -41,6 +56,17 @@ body {
     }
 }
 /*Анимация печатной машинки для заголовка*/
+@-webkit-keyframes print-letter {
+    0% {
+
+        visibility: visible;
+        width: 0;
+    }
+    100% {
+        width: 100%;
+        visibility: visible;
+    }
+}
 @keyframes print-letter {
     0% {
 
@@ -54,6 +80,17 @@ body {
 }
 
 /*Анимация появления параграфа*/
+@-webkit-keyframes show-hidden {
+    0% {
+        opacity: 0.4;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
 @keyframes show-hidden {
     0% {
         opacity: 0.4;
@@ -67,6 +104,20 @@ body {
 }
 
 /*Анимация заполнения линии прогресс-бара*/
+@-webkit-keyframes progress-line {
+    0% {
+        width: 0;
+
+        background-color: #4b6ecd;
+        visibility: visible;
+    }
+
+    100% {
+        width: 80%;
+
+        visibility: visible;
+    }
+}
 @keyframes progress-line {
     0% {
         width: 0;
@@ -83,6 +134,24 @@ body {
 }
 
 /*Анимация изменения десятков на прогресс баре*/
+@-webkit-keyframes change-decades {
+    0% { top: 0; visibility: visible}
+    9.9% { top: 0; visibility: visible}
+    10%{ top: -1em; visibility: visible}
+    19.9%{ top: -1em; visibility: visible}
+    20%{ top: -2em; visibility: visible }
+    29.9%{ top: -2em; visibility: visible}
+    30%{ top: -3em; visibility: visible}
+    39.9%{ top: -3em; visibility: visible}
+    40%{ top: -4em; visibility: visible}
+    49.9%{ top: -4em; visibility: visible }
+    50% { top: -5em; visibility: visible}
+    59.9%{ top: -5em; visibility: visible}
+    60%{ top: -6em; visibility: visible }
+    69.9%{ top: -6em; visibility: visible}
+    70%{ top: -7em; visibility: visible}
+    100%{ top: -7em; visibility: visible }
+}
 @keyframes change-decades {
     0% { top: 0; visibility: visible}
     9.9% { top: 0; visibility: visible}
@@ -102,6 +171,29 @@ body {
     100%{ top: -7em; visibility: visible }
 }
 /*Анимация изменения единиц на прогресс-баре*/
+@-webkit-keyframes change-units {
+    0% { top: 0; }
+    9.9% { top: 0; }
+    10%{ top: -1em; }
+    19.9%{ top: -1em; }
+    20%{ top: -2em; }
+    29.9%{ top: -2em; }
+    30%{ top: -3em; }
+    39.9%{ top: -3em; }
+    40%{ top: -4em; }
+    49.9%{ top: -4em; }
+    50% { top: -5em; }
+    59.9%{ top: -5em; }
+    60%{ top: -6em; }
+    69.9%{ top: -6em; }
+    70%{ top: -7em; }
+    79.9%{ top: -7em; }
+    80%{ top: -8em; }
+    89.9%{ top: -8em; }
+    90%{ top: -9em; }
+    99.9%{ top: -9em; }
+    100% { top: -9em; }
+}
 @keyframes change-units {
     0% { top: 0; }
     9.9% { top: 0; }
@@ -137,9 +229,16 @@ body {
 }
 
 .promo__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 100%;
     max-width: 560px;
@@ -169,6 +268,8 @@ body {
 
     overflow: hidden;
     visibility: hidden;
+    -webkit-animation: blinking-cursor 1s step-end 4,
+    print-letter 1s steps(6, end) forwards;
     animation: blinking-cursor 1s step-end 4,
     print-letter 1s steps(6, end) forwards;
 }
@@ -188,11 +289,15 @@ body {
 
     overflow: hidden;
     visibility: hidden;
+    -webkit-animation: blinking-cursor 1s step-end infinite 2s,
+    print-letter 2s steps(12, end) 4s forwards;
     animation: blinking-cursor 1s step-end infinite 2s,
-               print-letter 2s steps(12, end) 4s forwards;
+    print-letter 2s steps(12, end) 4s forwards;
 }
 
 .promo__note {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
     order: 2;
     width: 100%;
     margin-top: 0;
@@ -203,6 +308,7 @@ body {
     text-align: center;
 
     visibility: hidden;
+    -webkit-animation: show-hidden 2s ease 16s forwards;
     animation: show-hidden 2s ease 16s forwards;
 }
 
@@ -213,13 +319,20 @@ body {
     margin-bottom: 10px;
 
     visibility: hidden;
+    -webkit-animation: show-hidden 1s ease 6s forwards;
     animation: show-hidden 1s ease 6s forwards;
 }
 
 .preload__wrapper {
     position: relative;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 100%;
     max-width: 300px;
@@ -240,7 +353,11 @@ body {
     height: 38px;
 
     background-color: #1a1a1a;
-    border: 3px solid #ffffff;
+    border: 2px solid #ffffff;
+
+    -webkit-transform: translateY(-50%);
+
+    -ms-transform: translateY(-50%);
 
     transform: translateY(-50%);
 }
@@ -267,6 +384,7 @@ body {
     visibility: hidden;
 
     background-color: #4b6ecd;
+    -webkit-animation: progress-line 8s ease-out 7s forwards;
     animation: progress-line 8s ease-out 7s forwards;
 }
 
@@ -278,6 +396,10 @@ body {
 
     font-size: 15px;
     text-transform: uppercase;
+
+    -webkit-transform: translate(-50%, -50%);
+
+    -ms-transform: translate(-50%, -50%);
 
     transform: translate(-50%, -50%);
 }
@@ -300,11 +422,13 @@ body {
 }
 
 .preload__value--units .preload__value-components {
+    -webkit-animation: change-units 1s ease-out 8 7s;
     animation: change-units 1s ease-out 8 7s;
 }
 
 .preload__value--decades .preload__value-components {
     visibility: hidden;
+    -webkit-animation: change-decades 10s ease-out 1 8s forwards;
     animation: change-decades 10s ease-out 1 8s forwards;
 }
 
