@@ -1,3 +1,4 @@
+/*Базовые стили*/
 html {
     box-sizing: border-box;
 }
@@ -23,6 +24,110 @@ body {
     background-color: #ffffff;
 }
 
+/*Покадровые анимации*/
+
+/*Анимация мерцающего курсора*/
+@keyframes blinking-cursor {
+    0% {
+        border-color: #4b6ecd;
+    }
+
+    50% {
+        border-color: transparent;
+    }
+
+    100% {
+        border-color: #4b6ecd;
+    }
+}
+/*Анимация печатной машинки для заголовка*/
+@keyframes print-letter {
+    0% {
+
+        visibility: visible;
+        width: 0;
+    }
+    100% {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+/*Анимация появления параграфа*/
+@keyframes show-hidden {
+    0% {
+        opacity: 0.4;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/*Анимация заполнения линии прогресс-бара*/
+@keyframes progress-line {
+    0% {
+        width: 0;
+
+        background-color: #4b6ecd;
+        visibility: visible;
+    }
+
+    100% {
+        width: 80%;
+
+        visibility: visible;
+    }
+}
+
+/*Анимация изменения десятков на прогресс баре*/
+@keyframes change-decades {
+    0% { top: 0; visibility: visible}
+    9.9% { top: 0; visibility: visible}
+    10%{ top: -1em; visibility: visible}
+    19.9%{ top: -1em; visibility: visible}
+    20%{ top: -2em; visibility: visible }
+    29.9%{ top: -2em; visibility: visible}
+    30%{ top: -3em; visibility: visible}
+    39.9%{ top: -3em; visibility: visible}
+    40%{ top: -4em; visibility: visible}
+    49.9%{ top: -4em; visibility: visible }
+    50% { top: -5em; visibility: visible}
+    59.9%{ top: -5em; visibility: visible}
+    60%{ top: -6em; visibility: visible }
+    69.9%{ top: -6em; visibility: visible}
+    70%{ top: -7em; visibility: visible}
+    100%{ top: -7em; visibility: visible }
+}
+/*Анимация изменения единиц на прогресс-баре*/
+@keyframes change-units {
+    0% { top: 0; }
+    9.9% { top: 0; }
+    10%{ top: -1em; }
+    19.9%{ top: -1em; }
+    20%{ top: -2em; }
+    29.9%{ top: -2em; }
+    30%{ top: -3em; }
+    39.9%{ top: -3em; }
+    40%{ top: -4em; }
+    49.9%{ top: -4em; }
+    50% { top: -5em; }
+    59.9%{ top: -5em; }
+    60%{ top: -6em; }
+    69.9%{ top: -6em; }
+    70%{ top: -7em; }
+    79.9%{ top: -7em; }
+    80%{ top: -8em; }
+    89.9%{ top: -8em; }
+    90%{ top: -9em; }
+    99.9%{ top: -9em; }
+    100% { top: -9em; }
+}
+
+/*Общая секция*/
+
 .promo {
     width: 100%;
     height: inherit;
@@ -37,13 +142,14 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 564px;
+    max-width: 560px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .promo__title {
     display: block;
+
     font-weight: 500;
     font-size: 45px;
     line-height: 40px;
@@ -52,94 +158,55 @@ body {
 }
 
 .promo__title--cyber {
-    visibility: hidden;
+    max-width: 250px;
     margin-bottom: 20px;
-    white-space: nowrap;
-    overflow: hidden;
-    letter-spacing: 5px;
+
     text-align: left;
+    letter-spacing: 5px;
+    white-space: nowrap;
 
     border-right: 35px solid transparent;
+
+    overflow: hidden;
+    visibility: hidden;
     animation: blinking-cursor 1s step-end 4,
     print-letter 1s steps(6, end) forwards;
 }
 
 .promo__title--decoration {
-    visibility: hidden;
     margin-bottom: 30px;
-
- letter-spacing: 5px;
 
     font-weight: 500;
     font-size: 28px;
     line-height: 28px;
     color: #ffffff;
     text-transform: lowercase;
-
+    letter-spacing: 5px;
     white-space: nowrap;
-    overflow: hidden;
 
     border-right: 30px solid transparent;
 
+    overflow: hidden;
+    visibility: hidden;
     animation: blinking-cursor 1s step-end infinite 2s,
-    print-letter 2s steps(12, end) 4s forwards;
+               print-letter 2s steps(12, end) 4s forwards;
 }
-
-@keyframes blinking-cursor {
-    0% {
-        border-color: #4b6ecd;
-    }
-
-    50% {
-        border-color: transparent;
-    }
-
-    100% {
-        border-color: #4b6ecd;
-    }
-}
-
-@keyframes print-letter {
-    0% {
-
-        visibility: visible;
-        width: 0;
-    }
-    100% {
-        width: 100%;
-        visibility: visible;
-    }
-}
-
-
-
-
 
 .promo__note {
     order: 2;
     width: 100%;
     margin-top: 0;
-    visibility: hidden;
 
     font-size: 18px;
     line-height: calc(18px * 1.2);
     color: #5d84d7;
     text-align: center;
 
+    visibility: hidden;
     animation: show-hidden 2s ease 16s forwards;
 }
 
-@keyframes show-hidden {
-    0% {
-        opacity: 0.4;
-        visibility: visible;
-    }
-
-    100% {
-        opacity: 1;
-       visibility: visible;
-    }
-}
+/*Секция прогресс-бара*/
 
 .preload {
     width: 100%;
@@ -149,26 +216,25 @@ body {
     animation: show-hidden 1s ease 6s forwards;
 }
 
-
-
 .preload__wrapper {
     position: relative;
+
     display: flex;
     align-items: center;
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
 
-    border: 3px solid #ffffff;
-
-
+    border: 2px solid #ffffff;
 }
 
 .preload__wrapper::before,
 .preload__wrapper::after {
     content: "";
+
     position: absolute;
     top: 50%;
+
     display: block;
     width: 9px;
     height: 38px;
@@ -196,30 +262,13 @@ body {
 
 .preload__progress {
     width: 80%;
-    height: 48px;
+    height: 40px;
 
     visibility: hidden;
 
     background-color: #4b6ecd;
-    animation: progress-line 8s linear 7s forwards;
+    animation: progress-line 8s ease-out 7s forwards;
 }
-
-@keyframes progress-line {
-    0% {
-      width: 0;
-        visibility: visible;
-      background-color: #4b6ecd;
-    }
-
-    100% {
-        width: 80%;
-        visibility: visible;
-    }
-}
-
-
-
-
 
 .preload__value,
 .preload__percentage {
@@ -236,107 +285,61 @@ body {
 .preload__value {
     width: 1em;
     height: 1em;
-    overflow: hidden;
+
     line-height: 1em;
+
+    overflow: hidden;
 }
 
 .preload__value--decades {
     left: 47%;
 }
 
-
 .preload__value-components {
     position: relative;
 }
 
 .preload__value--units .preload__value-components {
-    animation: change-units 1s 8 7s;
+    animation: change-units 1s ease-out 8 7s;
 }
 
 .preload__value--decades .preload__value-components {
     visibility: hidden;
-    animation: change-decades 10s 1 8s forwards;
+    animation: change-decades 10s ease-out 1 8s forwards;
 }
-
-
 
 .preload__percentage {
     left: 53.5%;
 }
 
-@keyframes change-decades {
-    0% { top: 0em; visibility: visible}
-    9.9% { top: 0em; visibility: visible}
-    10%{ top: -1em; visibility: visible}
-    19.9%{ top: -1em; visibility: visible}
-    20%{ top: -2em; visibility: visible }
-    29.9%{ top: -2em; visibility: visible}
-    30%{ top: -3em; visibility: visible}
-    39.9%{ top: -3em; visibility: visible}
-    40%{ top: -4em; visibility: visible}
-    49.9%{ top: -4em; visibility: visible }
-    50% { top: -5em; visibility: visible}
-    59.9%{ top: -5em; visibility: visible}
-    60%{ top: -6em; visibility: visible }
-    69.9%{ top: -6em; visibility: visible}
-    70%{ top: -7em; visibility: visible}
-    100%{ top: -7em; visibility: visible }
-}
-
-@keyframes change-units {
-    0% { top: 0; }
-    9.9% { top: 0; }
-    10%{ top: -1em; }
-    19.9%{ top: -1em; }
-    20%{ top: -2em; }
-    29.9%{ top: -2em; }
-    30%{ top: -3em; }
-    39.9%{ top: -3em; }
-    40%{ top: -4em; }
-    49.9%{ top: -4em; }
-    50% { top: -5em; }
-    59.9%{ top: -5em; }
-    60%{ top: -6em; }
-    69.9%{ top: -6em; }
-    70%{ top: -7em; }
-    79.9%{ top: -7em; }
-    80%{ top: -8em; }
-    89.9%{ top: -8em; }
-    90%{ top: -9em; }
-    99.9%{ top: -9em; }
-    100% { top: -9em; }
-}
-
 @media screen and (min-width: 768px) {
-
-
-    .promo__title--cyber {
-        min-height: 136px;
-        margin-bottom: 50px;
-
-        border-right: 55px solid transparent;
-    }
-
-    .promo__title--decoration {
-        height: 67px;
-
-        border-right: 60px solid transparent;
-        margin-bottom: 0;
-    }
 
     .promo__wrapper {
         width: 100%;
         max-width: 960px;
     }
 
-    .promo__title {
+    .promo-title {
+        max-width: 775px;
+    }
+
+    .promo__title--cyber {
+        max-width: none;
         font-size: 166px;
-        line-height: 123px;
+        line-height: 153px;
+
+        border-right: 55px solid transparent;
     }
 
     .promo__title--decoration {
+        height: 67px;
+        max-width: none;
+
         font-size: 93px;
         line-height: 47px;
+
+        border-right: 60px solid transparent;
+        margin-bottom: 100px;
     }
 
     .promo__note {
@@ -349,13 +352,15 @@ body {
     }
 
     .preload__wrapper {
-        max-width: none;
+        max-width: 520px;
+    }
+
+    .preload__progress {
+        height: 48px;
     }
 
     .preload__value,
     .preload__percentage {
         font-size: 22px;
     }
-
-
 }
