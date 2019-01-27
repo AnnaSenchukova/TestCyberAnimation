@@ -22,7 +22,22 @@ function typewriter(source) {
     })();
 }
 
-typewriter(htmlStringCyber);
-typewriter(htmlStringDay);
+
+    typewriter(htmlStringCyber);
+    setTimeout(typewriter, 1500, htmlStringDay);
 
 
+
+/* Скрипт появления/изчезновения текста */
+
+var htmlNote = document.querySelector('.promo__note');
+
+function visiability(hiddenObject) {
+    var cloneHtml = hiddenObject.cloneNode(true);
+    var hiddenText = cloneHtml.innerText;
+    hiddenObject.innerHTML = '';
+
+    setTimeout( function () {hiddenObject.innerHTML = hiddenText;}, 15000);
+}
+
+visiability(htmlNote);
