@@ -28,7 +28,7 @@ body {
 
 /*Покадровые анимации*/
 
-/*Анимация мерцающего курсора*/
+/*Анимация мерцающего курсора
 @-webkit-keyframes blinking-cursor {
     0% {
         border-color: #4b6ecd;
@@ -55,7 +55,8 @@ body {
         border-color: #4b6ecd;
     }
 }
-/*Анимация печатной машинки для заголовка*/
+*/
+/*Анимация печатной машинки для заголовка
 @-webkit-keyframes print-letter {
     0% {
 
@@ -78,8 +79,9 @@ body {
         visibility: visible;
     }
 }
+*/
 
-/*Анимация появления параграфа*/
+/*Анимация появления параграфа
 @-webkit-keyframes show-hidden {
     0% {
         opacity: 0.4;
@@ -102,8 +104,9 @@ body {
         visibility: visible;
     }
 }
+*/
 
-/*Анимация заполнения линии прогресс-бара*/
+/*Анимация заполнения линии прогресс-бара
 @-webkit-keyframes progress-line {
     0% {
         width: 0;
@@ -132,8 +135,9 @@ body {
         visibility: visible;
     }
 }
+*/
 
-/*Анимация изменения десятков на прогресс баре*/
+/*Анимация изменения десятков на прогресс баре
 @-webkit-keyframes change-decades {
     0% { top: 0; visibility: visible}
     9.9% { top: 0; visibility: visible}
@@ -170,7 +174,8 @@ body {
     70%{ top: -7em; visibility: visible}
     100%{ top: -7em; visibility: visible }
 }
-/*Анимация изменения единиц на прогресс-баре*/
+*/
+/*Анимация изменения единиц на прогресс-баре
 @-webkit-keyframes change-units {
     0% { top: 0; }
     9.9% { top: 0; }
@@ -217,6 +222,7 @@ body {
     99.9%{ top: -9em; }
     100% { top: -9em; }
 }
+*/
 
 /*Общая секция*/
 
@@ -266,12 +272,14 @@ body {
 
     border-right: 35px solid transparent;
 
+    /*
     overflow: hidden;
     visibility: hidden;
     -webkit-animation: blinking-cursor 1s step-end 4,
     print-letter 1s steps(6, end) forwards;
     animation: blinking-cursor 1s step-end 4,
     print-letter 1s steps(6, end) forwards;
+    */
 }
 
 .promo__title--decoration {
@@ -287,12 +295,14 @@ body {
 
     border-right: 30px solid transparent;
 
+    /*
     overflow: hidden;
     visibility: hidden;
     -webkit-animation: blinking-cursor 1s step-end infinite 2s,
     print-letter 2s steps(12, end) 4s forwards;
     animation: blinking-cursor 1s step-end infinite 2s,
     print-letter 2s steps(12, end) 4s forwards;
+    */
 }
 
 .promo__note {
@@ -306,10 +316,11 @@ body {
     line-height: calc(18px * 1.2);
     color: #5d84d7;
     text-align: center;
-
+    /*
     visibility: hidden;
     -webkit-animation: show-hidden 2s ease 16s forwards;
     animation: show-hidden 2s ease 16s forwards;
+    */
 }
 
 /*Секция прогресс-бара*/
@@ -317,10 +328,11 @@ body {
 .preload {
     width: 100%;
     margin-bottom: 10px;
-
+    /*
     visibility: hidden;
     -webkit-animation: show-hidden 1s ease 6s forwards;
     animation: show-hidden 1s ease 6s forwards;
+    */
 }
 
 .preload__wrapper {
@@ -381,11 +393,12 @@ body {
     width: 80%;
     height: 40px;
 
-    visibility: hidden;
-
     background-color: #4b6ecd;
+    /*
+    visibility: hidden;
     -webkit-animation: progress-line 8s ease-out 7s forwards;
     animation: progress-line 8s ease-out 7s forwards;
+    */
 }
 
 .preload__value,
@@ -410,7 +423,7 @@ body {
 
     line-height: 1em;
 
-    overflow: hidden;
+   /* overflow: hidden;*/
 }
 
 .preload__value--decades {
@@ -422,14 +435,16 @@ body {
 }
 
 .preload__value--units .preload__value-components {
-    -webkit-animation: change-units 1s ease-out 8 7s;
+    /*-webkit-animation: change-units 1s ease-out 8 7s;
     animation: change-units 1s ease-out 8 7s;
+    */
 }
 
 .preload__value--decades .preload__value-components {
-    visibility: hidden;
+   /* visibility: hidden;
     -webkit-animation: change-decades 10s ease-out 1 8s forwards;
     animation: change-decades 10s ease-out 1 8s forwards;
+    */
 }
 
 .preload__percentage {
