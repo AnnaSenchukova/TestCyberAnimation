@@ -41,3 +41,28 @@ function visiability(hiddenObject) {
 }
 
 visiability(htmlNote);
+
+/* Скрипт заполнения строки */
+
+
+
+function progress() {
+    var htmlPreloadLine = document.querySelector('.preload__progress');
+    var counterProgress = 0;
+    var timer = setInterval( preloadProgress, 100 );
+    
+    function preloadProgress() {
+        counterProgress ++;
+        htmlPreloadLine.value = counterProgress;
+
+        if(counterProgress === 80) {
+            clearInterval(timer);
+        }
+    }
+
+    function percentage() {
+        var htmlPercentage = document.querySelector('.preload__percentage');
+    }
+}
+
+progress();
