@@ -224,6 +224,10 @@ body {
 }
 */
 
+.show {
+    display: block;
+}
+
 /*Общая секция*/
 
 .promo {
