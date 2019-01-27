@@ -47,21 +47,32 @@ visiability(htmlNote);
 
 
 function progress() {
-    var htmlPreloadLine = document.querySelector('.preload__progress');
+    document.querySelector('.preload__value--decades').remove();
+    document.querySelector('.preload__value--units').remove();
+
     var counterProgress = 0;
+    var counterPercentages = 0;
     var timer = setInterval( preloadProgress, 100 );
     
     function preloadProgress() {
-        counterProgress ++;
+        var htmlPreloadLine = document.querySelector('.preload__progress');
+
+        counterProgress++;
         htmlPreloadLine.value = counterProgress;
 
-        if(counterProgress === 80) {
+        if (counterProgress === 80) {
             clearInterval(timer);
         }
-    }
 
-    function percentage() {
-        var htmlPercentage = document.querySelector('.preload__percentage');
+
+        function percentagesProgress() {
+            var htmlPercentage = document.querySelector('.preload__percentage');
+
+            counterPercentages = counterProgress;
+            htmlPercentage.innerHTML = counterPercentages + '%';
+        }
+        
+        percentagesProgress();
     }
 }
 
