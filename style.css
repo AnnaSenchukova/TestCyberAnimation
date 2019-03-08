@@ -28,7 +28,7 @@ body {
 
 /*Покадровые анимации*/
 
-/*Анимация мерцающего курсора
+/*Анимация мерцающего курсора*/
 @-webkit-keyframes blinking-cursor {
     0% {
         border-color: #4b6ecd;
@@ -55,7 +55,7 @@ body {
         border-color: #4b6ecd;
     }
 }
-*/
+
 /*Анимация печатной машинки для заголовка
 @-webkit-keyframes print-letter {
     0% {
@@ -224,8 +224,15 @@ body {
 }
 */
 
-.show {
-    display: block;
+.blinking-cursor-class {
+    animation: blinking-cursor 4s infinite;
+}
+
+.span {
+    width: 50px;
+    height: 50px;
+
+    background-color: yellow;
 }
 
 /*Общая секция*/
@@ -258,6 +265,7 @@ body {
 
 .promo__title {
     display: block;
+    /*min-width: 285px;*/
 
     font-weight: 500;
     font-size: 45px;
@@ -267,7 +275,7 @@ body {
 }
 
 .promo__title--cyber {
-    max-width: 250px;
+    /*max-width: 250px;*/
     margin-bottom: 20px;
 
     text-align: left;
@@ -493,7 +501,7 @@ body {
     }
 
     .promo-title {
-        max-width: 775px;
+        /*max-width: 775px;*/
     }
 
     .promo__title--cyber {
@@ -529,6 +537,14 @@ body {
     }
 
     .preload__progress {
+        height: 48px;
+    }
+
+    .preload__progress::-webkit-progress-bar {
+        height: 48px;
+    }
+
+    .preload__progress::-webkit-progress-value {
         height: 48px;
     }
 
